@@ -5,6 +5,9 @@ using System.Linq;
 namespace InterviewTest.DriverData.Analysers
 {
     // BONUS: Why internal?
+    // Internal class is accessible within same assembly only. Accesses to other assemblies is restricted.
+    // As a part of dependency inversion principle, we should program to interface rather than implementation.
+    // So clients of this feature can use IAnalyser interface and need not worry about what is actual concrete implementation.
     internal class DeliveryDriverAnalyser : BaseDriverAnalyser, IAnalyser
     {
         public DeliveryDriverAnalyser(DriverAnalysisCriteria driverAnalysisCriteria) : base(driverAnalysisCriteria) { }
