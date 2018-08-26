@@ -21,9 +21,12 @@ During the project implementation, I have used OOPS (Inheritance, Relationships,
 - MathFunctions contains below methods
 	1. CalculateWeightedAverage - Calculate weighted average for analysed period list.
 	
-### Task 1.1 Formula one analyser implementation
+### Task 1.2 Formula one analyser implementation
 
 - Overrided AnalyseValidPeriods as formula one analyser have different implementation than base.
+
+### Task 1.3 Gateway analyser implementation
+Overrided AnalyseValidPeriods as Gateway driver analyser have different implementation than base.
 	
 	
 	
