@@ -1,6 +1,6 @@
 This document illustrates the project implementation approach.
 
-During the project implementation, I have used OOPS, SOLID principles such as Dependency inversion, Single responsibility, Open-close Principle. 
+During the project implementation, I have used OOPS (Inheritance, Relationships, Static classes), SOLID principles(Dependency inversion, Single responsibility, Open-close Principle). 
 
 ### Task 1.1 Delivery driver implementation
 
