@@ -6,7 +6,7 @@ namespace InterviewTest.DriverData
 	[DebuggerDisplay("{_DebuggerDisplay,nq}")]
 	public class Period
 	{
-        // BONUS: What's the difference between DateTime and DateTimeOffset?
+        // BONUS: What's the difference between DateTime and DateTimeOffset? 
         /* DateTime provides date and time which may differ in different timezones.
            DateTimeOffset provides date and time along with an offset indicating difference with UTC date and time. So, DateTimeOffset always represents universal time.
         */
