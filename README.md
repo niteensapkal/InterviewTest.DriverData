@@ -2,7 +2,7 @@ This document illustrates the project implementation approach.
 
 During the project implementation, I have used OOPS (Inheritance, Relationships, Static classes), SOLID principles(Dependency inversion, Single responsibility, Open-close Principle). 
 
-### Task 1.1 Delivery driver implementation
+### Task 1.1 Delivery driver analyser implementation
 
 - Added below entity classes
 	1. DriverAnalysisCriteria - Hold analysis criteria for the driver. Contains AllowedStartTime, AllowedEndTime, AllowedMaxSpeed.
@@ -20,4 +20,10 @@ During the project implementation, I have used OOPS (Inheritance, Relationships,
 	1. MathFunctions static class - Contains maths related functions
 - MathFunctions contains below methods
 	1. CalculateWeightedAverage - Calculate weighted average for analysed period list.
+	
+### Task 1.1 Formula one analyser implementation
+
+- Overrided AnalyseValidPeriods as formula one analyser have different implementation than base.
+	
+	
 	
