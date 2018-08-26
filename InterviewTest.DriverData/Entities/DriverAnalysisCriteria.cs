@@ -24,5 +24,9 @@ namespace InterviewTest.DriverData
 
         public decimal RatingForExceedingSpeedLimit { get; set; }
 
+        public bool IsPenaltyApplicable { get; set; }
+
+        public decimal Penalty { get; set; }
+
     }
 }

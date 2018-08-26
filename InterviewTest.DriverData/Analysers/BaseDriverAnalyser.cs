@@ -78,6 +78,7 @@ namespace InterviewTest.DriverData.Analysers
                     //calculate rating. set rating to 0 if speed is greater than allowed max speed. 
                     period.Rating = period.AverageSpeed > driverAnalysisCriteria.AllowedMaxSpeed ?
                                             driverAnalysisCriteria.RatingForExceedingSpeedLimit : period.AverageSpeed / driverAnalysisCriteria.AllowedMaxSpeed;
+
                 }
             }
 
@@ -141,6 +142,13 @@ namespace InterviewTest.DriverData.Analysers
                     var timeDifference = period.End - period.Start;
                     analysedDuration = analysedDuration.Add(timeDifference);
                 }
+
+                //if penalty applicable
+                if (driverAnalysisCriteria.IsPenaltyApplicable && periodAnalysisList.Any(x => x.IsUndcoumentedPeriod))
+                {
+                    periodAnalysisList.ToList().ForEach(x => x.Rating = x.Rating * driverAnalysisCriteria.Penalty);
+                }
+
                 historyAnalysis.AnalysedDuration = analysedDuration;
                 historyAnalysis.DriverRating = MathFunctions.CalculateWeightedAverage(periodAnalysisList);
             }
