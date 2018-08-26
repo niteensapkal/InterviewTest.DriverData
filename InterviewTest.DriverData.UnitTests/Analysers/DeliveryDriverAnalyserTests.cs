@@ -7,7 +7,29 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 	[TestFixture]
 	public class DeliveryDriverAnalyserTests
 	{
-		[Test]
+        private DeliveryDriverAnalyser deliveryDriverAnalyser;
+        private DeliveryDriverAnalyser _deliveryDriverAnalyserWithPenaltyApplicable;
+
+        [SetUp]
+        public void Initialize()
+        {
+            deliveryDriverAnalyser = new DeliveryDriverAnalyser(new DriverAnalysisCriteria 
+            {
+                AllowedStartTime = new TimeSpan(9, 0, 0),
+                AllowedEndTime = new TimeSpan(17, 0, 0),
+                AllowedMaxSpeed = 30m
+            });
+
+            
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            deliveryDriverAnalyser = null;
+        }
+
+        [Test]
 		public void ShouldYieldCorrectValues()
 		{
 			var expectedResult = new HistoryAnalysis
@@ -16,7 +38,7 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 				DriverRating = 0.7638m
 			};
 
-			var actualResult = new DeliveryDriverAnalyser().Analyse(CannedDrivingData.History);
+			var actualResult = deliveryDriverAnalyser.Analyse(CannedDrivingData.History);
 
 			Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
 			Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating).Within(0.001m));
