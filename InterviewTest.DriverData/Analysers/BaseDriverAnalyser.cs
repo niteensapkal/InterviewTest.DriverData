@@ -20,7 +20,7 @@ namespace InterviewTest.DriverData.Analysers
         /// </summary>
         /// <param name="history"></param>
         /// <returns>List of PeriodAnalysis which is input for further calculations.</returns>
-        protected List<PeriodAnalysis> InitializePeriodAnalysisData(IEnumerable<Period> history)
+        protected virtual List<PeriodAnalysis> InitializePeriodAnalysisData(IEnumerable<Period> history)
         {
             List<PeriodAnalysis> periodAnalysisList = new List<PeriodAnalysis>();
             if (history == null || !history.Any())
@@ -35,6 +35,7 @@ namespace InterviewTest.DriverData.Analysers
                 periodAnalysis.IsUndcoumentedPeriod = true;
                 periodAnalysisList.Add(periodAnalysis);
             }
+            periodAnalysisList.OrderBy(x => x.Start);
             return periodAnalysisList;
         }
 
@@ -43,7 +44,7 @@ namespace InterviewTest.DriverData.Analysers
         /// </summary>
         /// <param name="periodAnalysisList">PeriodAnalysis List</param>
         /// <returns>Post calculation PeriodAnalysis List</returns>
-        protected List<PeriodAnalysis> AnalyseValidPeriodList(List<PeriodAnalysis> periodAnalysisList)
+        protected virtual List<PeriodAnalysis> AnalyseValidPeriodList(List<PeriodAnalysis> periodAnalysisList)
         {
             if (periodAnalysisList != null && periodAnalysisList.Any())
             {
@@ -74,12 +75,9 @@ namespace InterviewTest.DriverData.Analysers
                     //this is documented period. set flag to false
                     period.IsUndcoumentedPeriod = false;
 
-                    //reset speed to 0 if average speed is greater than allowed max speed.
-                    if (period.AverageSpeed > driverAnalysisCriteria.AllowedMaxSpeed)
-                        period.AverageSpeed = 0;
-
-                    //calcualte rating
-                    period.Rating = period.AverageSpeed / driverAnalysisCriteria.AllowedMaxSpeed;
+                    //calculate rating. set rating to 0 if speed is greater than allowed max speed. 
+                    period.Rating = period.AverageSpeed > driverAnalysisCriteria.AllowedMaxSpeed ?
+                                            driverAnalysisCriteria.RatingForExceedingSpeedLimit : period.AverageSpeed / driverAnalysisCriteria.AllowedMaxSpeed;
                 }
             }
 
@@ -92,7 +90,7 @@ namespace InterviewTest.DriverData.Analysers
         /// </summary>
         /// <param name="analysedData">PeriodAnalysis List</param>
         /// <returns>PeriodAnalysis List</returns>
-        protected List<PeriodAnalysis> AnalysisUndocumentedPeriodList(List<PeriodAnalysis> analysedData)
+        protected virtual List<PeriodAnalysis> AnalysisUndocumentedPeriodList(List<PeriodAnalysis> analysedData)
         {
             if (analysedData != null && analysedData.Any())
             {

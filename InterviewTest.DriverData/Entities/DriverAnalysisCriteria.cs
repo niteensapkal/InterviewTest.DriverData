@@ -22,5 +22,7 @@ namespace InterviewTest.DriverData
         /// </summary>
         public decimal AllowedMaxSpeed { get; set; }
 
+        public decimal RatingForExceedingSpeedLimit { get; set; }
+
     }
 }

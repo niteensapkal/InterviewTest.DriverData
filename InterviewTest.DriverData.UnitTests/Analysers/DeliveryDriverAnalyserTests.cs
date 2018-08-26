@@ -17,7 +17,8 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
             {
                 AllowedStartTime = new TimeSpan(9, 0, 0),
                 AllowedEndTime = new TimeSpan(17, 0, 0),
-                AllowedMaxSpeed = 30m
+                AllowedMaxSpeed = 30m,
+                RatingForExceedingSpeedLimit = 0,
             });
 
             
