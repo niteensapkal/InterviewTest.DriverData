@@ -30,15 +30,27 @@ During the project implementation, I have used OOPS (Inheritance, Relationships,
 ### Task 1.3 Gateway analyser implementation
 Overrided AnalyseValidPeriods as Gateway driver analyser have different implementation than parent class.
 	
-### Task 1.4 PENALISE FAULTY RECORDING
+### Task 1.4 Penalise faulty recording
 - Added below properties to DriverAnalysisCriteria
 	1. IsPenaltyApplicable - flag holds if penalty is applicable 
 	2. Penalty - Penalty Applicable
 	
 - Modified ComputeHistoryAnalysis method of BaseDriverAnalysisClass to check & apply penalty if applicable.
 
+
 ## Task 2 : Better Analyser Lookup
 - Used IReadOnlyDictionary to get respective analyser based on given input type.
-- AnalyserLookupTests - Tests for Analyser Lookup.
+- Added AnalyserLookupTests - Tests for Analyser Lookup.
 
+
+## Task 3 : Canned Data Schmanned Data
+- Added Json file format for history data. 
+- Added below interfaces
+ 	1. IDataFileReader - To Reade file from given source
+	2. IDataParser - To parse file into specified format
+- Added below classes
+	1. FileDataReader - Implementation for IDataFileReader. Reads file from given source location into string.
+	2. JsonDataParser - Implementation for IDataParser. Expect string format and parses data to json format.
 	
+- Added FileDataReaderTests for FileDataReader Tests
+- Added JsonDataParserTests for JsonParser Tests	
