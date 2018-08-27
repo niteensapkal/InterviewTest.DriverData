@@ -28,5 +28,12 @@ During the project implementation, I have used OOPS (Inheritance, Relationships,
 ### Task 1.3 Gateway analyser implementation
 Overrided AnalyseValidPeriods as Gateway driver analyser have different implementation than base.
 	
+### Task 1.4 PENALISE FAULTY RECORDING
+- Added below properties to DriverAnalysisCriteria
+	1. IsPenaltyApplicable - flag holds if penalty is applicable 
+	2. Penalty - Penalty Applicable
 	
+- Modified ComputeHistoryAnalysis method of BaseDriverAnalysisClass to check & apply penalty if applicable.
+
+
 	
