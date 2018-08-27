@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -51,6 +55,8 @@
     <Compile Include="Analysers\DeliveryDriverAnalyserTests.cs" />
     <Compile Include="Analysers\GetawayDriverAnalyserTests.cs" />
     <Compile Include="Analysers\FriendlyAnalyserTests.cs" />
+    <Compile Include="DataParsers\JsonDataParserTests.cs" />
+    <Compile Include="DataReaders\FileDataReaderTests.cs" />
     <Compile Include="Lookups\AnalyserLookupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
