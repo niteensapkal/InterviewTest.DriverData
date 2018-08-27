@@ -54,3 +54,12 @@ Overrided AnalyseValidPeriods as Gateway driver analyser have different implemen
 	
 - Added FileDataReaderTests for FileDataReader Tests
 - Added JsonDataParserTests for JsonParser Tests	
+
+
+## Task 4 : Improve the tests
+- Added test cases for DeliveryDriverAnalyser
+- Added test cases for FormulaOneAnalyser
+- Added test cases for GatewayAnalyser
+- Added test cases for FileDataReader
+- Added test cases for JsonDataParser
+
