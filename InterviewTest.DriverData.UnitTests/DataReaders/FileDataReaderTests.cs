@@ -43,5 +43,23 @@ namespace InterviewTest.DriverData.UnitTests.DataReaders
             // Act and Assert
             Assert.Throws<FileNotFoundException>(() => dataFileReader.ReadFileData(filePath));
         }
+
+        public void ShouldThrowException_ForEmptyInputPath()
+        {
+            // Arrange
+            string filePath = "";
+
+            // Act and Assert
+            Assert.Throws<FileNotFoundException>(() => dataFileReader.ReadFileData(filePath));
+        }
+
+        public void ShouldThrowException_ForNullInputPath()
+        {
+            // Arrange
+            string filePath = null;
+
+            // Act and Assert
+            Assert.Throws<FileNotFoundException>(() => dataFileReader.ReadFileData(filePath));
+        }
     }
 }

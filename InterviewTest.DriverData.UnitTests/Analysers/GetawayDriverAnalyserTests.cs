@@ -42,5 +42,77 @@ namespace InterviewTest.DriverData.UnitTests.Analysers
 			Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
 			Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating).Within(0.001m));
 		}
-	}
+
+        public void ShouldYieldZeroRating_ForZeroHistoryRecords()
+        {
+            // Arrange
+            var expectedResult = new HistoryAnalysis
+            {
+                AnalysedDuration = new TimeSpan(0, 0, 0),
+                DriverRating = 0.0m
+            };
+
+            // Act
+            var actualResult = getawayDriverAnalyser.Analyse(CannedDrivingData.NoHistoryRecords);
+
+            // Assert
+            Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
+            Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating));
+        }
+
+        [Test]
+        public void ShouldYieldZeroRating_ForPeriodsWithSameStartAndEndTime()
+        {
+            // Arrange
+            var expectedResult = new HistoryAnalysis
+            {
+                AnalysedDuration = new TimeSpan(0, 0, 0),
+                DriverRating = 0.0m
+            };
+
+            // Act
+            var actualResult = getawayDriverAnalyser.Analyse(CannedDrivingData.SameStartAndEndTimeHistory);
+
+            // Assert
+            Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
+            Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating));
+        }
+
+        [Test]
+        public void ShouldYieldZeroRating_WhenSpeedIsGreaterThanAllowedMaxSpeed_WithInvalidTime()
+        {
+            // Arrange
+            var expectedResult = new HistoryAnalysis
+            {
+                AnalysedDuration = new TimeSpan(0, 0, 0),
+                DriverRating = 0.0m
+            };
+
+            // Act
+            var actualResult = getawayDriverAnalyser.Analyse(CannedDrivingData.GatewayDriverHistoryBeyondAllowedMaxSpeed);
+
+            // Assert
+            Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
+            Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating));
+        }
+
+        [Test]
+        public void ShouldYieldCorrectValues_WhenHistoryLoadedFromDataFile()
+        {
+            // Arrange
+            var expectedResult = new HistoryAnalysis
+            {
+                AnalysedDuration = TimeSpan.FromHours(1),
+                DriverRating = 0.1813m
+            };
+
+
+            // Act
+            var actualResult = getawayDriverAnalyser.Analyse(CannedDrivingData.GetHistoryFromFile());
+
+            // Assert
+            Assert.That(actualResult.AnalysedDuration, Is.EqualTo(expectedResult.AnalysedDuration));
+            Assert.That(actualResult.DriverRating, Is.EqualTo(expectedResult.DriverRating).Within(0.001m));
+        }
+    }
 }
