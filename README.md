@@ -2,6 +2,8 @@ This document illustrates the project implementation approach.
 
 During the project implementation, I have used OOPS (Inheritance, Relationships, Static classes), SOLID principles(Dependency inversion, Single responsibility, Open-close Principle). 
 
+## Task 1 Analysers
+
 ### Task 1.1 Delivery driver analyser implementation
 
 - Added below entity classes
@@ -23,10 +25,10 @@ During the project implementation, I have used OOPS (Inheritance, Relationships,
 	
 ### Task 1.2 Formula one analyser implementation
 
-- Overrided AnalyseValidPeriods as formula one analyser have different implementation than base.
+- Overrided AnalyseValidPeriods as formula one analyser have different implementation than parent class.
 
 ### Task 1.3 Gateway analyser implementation
-Overrided AnalyseValidPeriods as Gateway driver analyser have different implementation than base.
+Overrided AnalyseValidPeriods as Gateway driver analyser have different implementation than parent class.
 	
 ### Task 1.4 PENALISE FAULTY RECORDING
 - Added below properties to DriverAnalysisCriteria
@@ -35,5 +37,8 @@ Overrided AnalyseValidPeriods as Gateway driver analyser have different implemen
 	
 - Modified ComputeHistoryAnalysis method of BaseDriverAnalysisClass to check & apply penalty if applicable.
 
+## Task 2 : Better Analyser Lookup
+- Used IReadOnlyDictionary to get respective analyser based on given input type.
+- AnalyserLookupTests - Tests for Analyser Lookup.
 
 	
